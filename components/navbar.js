@@ -9,9 +9,11 @@ import {
   Heading,
   Grid,
   IconButton,
+  Text,
+  AccordionButton,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import { FaShoppingBag } from "react-icons/fa";
+import { AiOutlineSearch, AiOutlineShopping } from "react-icons/ai";
 
 export default function NavBar({ CompanyName }) {
   return (
@@ -24,20 +26,24 @@ export default function NavBar({ CompanyName }) {
       boxShadow="md"
     >
       <Grid
-        templateColumns={["1fr 125px 1fr"]}
+        templateColumns={["1fr 1fr 1fr", null, "1fr 125px 1fr"]}
         w="100%"
         justifyItems="center"
         paddingX="25px"
       >
         <HStack spacing="20px" justifySelf="start">
           <Button textColor="black" variant="link" size="md">
-            <Link href="/product-list">New</Link>
+            <Link href="/product-list">
+              New
+            </Link>
           </Button>
           <Button textColor="black" variant="link" size="md">
             Shop
           </Button>
           <Button textColor="black" variant="link" size="md">
-            About
+            <Link href="/about">
+              About
+            </Link>
           </Button>
         </HStack>
 
@@ -47,19 +53,29 @@ export default function NavBar({ CompanyName }) {
           </Link>
         </Box>
 
-        <HStack spacing="20px" justifySelf="end">
-          <IconButton
-            aria-label="Search site"
-            icon={<SearchIcon />}
-            bgColor="transparent"
-            _hover={{bgColor: "transparent"}}
-          />
-          <IconButton
-            aria-label="Search site"
-            icon={<FaShoppingBag/>}
-            bgColor="transparent"
-            _hover={{bgColor: "transparent"}}
-          />
+        <HStack justifySelf="end">
+          <HStack spacing="0px">
+            <IconButton
+              aria-label="Search site"
+              icon={<AiOutlineSearch/>}
+              bgColor="transparent"
+              _hover={{bgColor: "transparent"}}
+            />
+            <Button textColor="black" variant="link" size="md">
+              Search
+            </Button>
+          </HStack>
+          <HStack spacing="0px">
+            <IconButton
+              aria-label="Search site"
+              icon={<AiOutlineShopping/>}
+              bgColor="transparent"
+              _hover={{bgColor: "transparent"}}
+            />
+            <Button textColor="black" variant="link" size="md">
+              Bag
+            </Button>
+          </HStack>
         </HStack>
       </Grid>
     </Box>

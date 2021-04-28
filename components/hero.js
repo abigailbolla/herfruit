@@ -38,6 +38,7 @@ export default function Hero() {
      gridColumn="1"
      bgGradient="linear(to left, cyan.400, pink.400)"
      filter="blur(50px)"
+     
      padding="100px"
      opacity=".3"
      w="100vw"
@@ -66,8 +67,8 @@ export default function Hero() {
           className="images"
           gridRow="1"
           gridColumn="1"
-          templateColumns={["100%", null, "1fr 2fr 1fr"]}
-          gap={50}
+          templateColumns={["1fr 2fr 1fr"]}
+          gap={["15px", null, null, "50px"]}
           alignItems="center"
           w="100%"
           maxW="1800px"
@@ -93,9 +94,10 @@ export default function Hero() {
         
         <VStack
           alignSelf="center"
+          paddingTop={["15px", null, "0px"]}
           spacing="25px"
-          gridRow="1"
-          gridColumn="1"
+          gridRow={[null, null, "1"]}
+          gridColumn={[null, null, "1"]}
           zIndex="2"
           textAlign="center"
           maxW="500px"
@@ -112,7 +114,8 @@ export default function Hero() {
           borderRadius="0px"
           bgGradient="linear(to right, pink.100, purple.100, cyan.100)"
           bgGradient="opacity .2"
-          textColor="black"
+          textColor="white"
+          bgColor="black"
           transition=""
           _hover={{
             bgGradient: "linear(to right, cyan.100, purple.100, pink.100)",
