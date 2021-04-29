@@ -57,7 +57,7 @@ export function ImageGridDesktop({ gridItems }) {
       gap={25}
     >
       {gridItems.map((item) => (
-        <LinkBox>
+        <LinkBox key={item.heading}>
           <AspectRatio ratio={10 / 15}>
             <Image src={item.image} layout="fill" objectFit="cover" />
           </AspectRatio>
@@ -86,7 +86,7 @@ export function ImageGridMobile({ gridItems }) {
       templateColumns= {`repeat(${gridItems.length}, 60vw)`}
       >
         {gridItems.map((item) => (
-          <LinkBox paddingRight="15px">
+          <LinkBox key={item.heading} paddingRight="15px">
             <AspectRatio ratio={10 / 15}>
               <Image src={item.image} layout="fill" objectFit="cover" />
             </AspectRatio>

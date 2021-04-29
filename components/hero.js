@@ -38,7 +38,6 @@ export default function Hero() {
      gridColumn="1"
      bgGradient="linear(to left, cyan.400, pink.400)"
      filter="blur(50px)"
-     
      padding="100px"
      opacity=".3"
      w="100vw"
@@ -58,8 +57,8 @@ export default function Hero() {
         className="image and text overlap"
         templateColumns={"100%"}
         templateRows={"1fr"}
-        marginBottom="100px"
-        marginTop="75px"
+        marginBottom={["50px", null, "75px"]}
+        marginTop={["50px", null, "75px"]}
         zIndex="2"
       >
         

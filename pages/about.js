@@ -5,13 +5,13 @@ export default function About() {
   return (
     <Layout>
       <Grid 
-      templateColumns={["100%", null, "repeat(2, 1fr)"]}
+      templateColumns={["100%", null, null, "repeat(2, 1fr)"]}
       gap={50} 
       padding={["15px", null, "100px"]} 
       maxW="1500px" 
       marginX="auto"
       >
-        <AspectRatio ratio={9/16}>
+        <AspectRatio ratio={3/4}>
           <Image src="/images/malia.jpg" objectFit="cover"/>
         </AspectRatio>
         <VStack spacing="50px">
