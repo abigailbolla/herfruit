@@ -28,6 +28,10 @@ import {
   AiOutlineShopping,
   AiOutlineMenu,
 } from "react-icons/ai";
+import { motion, AnimatePresence } from "framer-motion"
+
+const MotionModalContent = motion(ModalContent)
+const MotionModalOverlay = motion(ModalOverlay)
 
 export default function NavBar() {
   const pages = [
@@ -67,68 +71,104 @@ export default function NavBar() {
 export function NavBarMobile({ pages, shopLinks }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box position="sticky" zIndex="50" top="0" bgColor="white" boxShadow="md">
-      <Grid templateColumns={["1fr 125px 1fr"]}>
-        <HStack>
-          <IconButton
-            onClick={onOpen}
-            icon={<AiOutlineMenu />}
-            justifySelf="start"
-            alignSelf="center"
-            bgColor="transparent"
-            _hover={{ bgColor: "transparent" }}
-          />
-          <Modal
-            size="full"
-            onClose={onClose}
-            isOpen={isOpen}
-            motionPreset="none"
-            style={{
-              justifyContent: "start",
-              background: "red"
-            }}
-          >
-            <ModalOverlay/>
-            <ModalContent
-            marginRight="auto"
-            marginTop="0px"
-            borderRadius="0px"
-            maxW="75%">
-              <ModalCloseButton/>
-              <ModalHeader></ModalHeader>
-              <ModalBody>
-                <VStack alignItems="left">
-                {pages.map((page) =>
-                <Text key={page.title}
-                fontSize="xl"
-                textColor="black"
-                >
-                  <Link href={page.link} >{page.title}</Link>
-                </Text>
-                )}
-                </VStack>
-              </ModalBody>
-            </ModalContent>
-          </Modal>
-        </HStack>
-        <Box marginBottom="5%" paddingTop="10px">
-          <Link textColor="black" size="sm" href="/">
-            <Image src="/images/logo.png" />
-          </Link>
-        </Box>
-        <HStack justifySelf="end">
-          {shopLinks.map((shopLink) => (
+    <AnimatePresence exitBeforeEnter>
+      <Box position="sticky" zIndex="50" top="0" bgColor="white" boxShadow="md">
+        <Grid templateColumns={["1fr 125px 1fr"]}>
+          <HStack>
             <IconButton
-              key={shopLink.title}
-              aria-label="Search site"
-              icon={shopLink.icon}
+              onClick={onOpen}
+              icon={<AiOutlineMenu />}
+              justifySelf="start"
+              alignSelf="center"
               bgColor="transparent"
               _hover={{ bgColor: "transparent" }}
             />
-          ))}
-        </HStack>
-      </Grid>
-    </Box>
+            <Modal
+              size="full"
+              onClose={onClose}
+              isOpen={isOpen}
+              motionPreset="none"
+              style={{
+                justifyContent: "start",
+                background: "red"
+              }}
+            >
+              <MotionModalOverlay
+              exit={{
+                opacity: 0
+              }}
+              initial={{
+                opacity: 0
+              }}
+              animate={{
+                opacity: 1,
+                transition: {
+                  duration: .2,
+                  ease: "easeOut"
+                }
+              }}
+              />
+              <MotionModalContent
+              exit={{
+                x: -25,
+                opacity: 0,
+                transition: {
+                  duration: .2,
+                  ease: "easeIn"
+                }
+              }}
+              initial={{
+                x: -25,
+                opacity: 0
+              }}
+              animate={{
+                x: 0,
+                opacity: 1,
+                transition: {
+                  duration: .2,
+                  ease: "easeOut"
+                }
+              }}
+              marginRight="auto"
+              marginTop="0px"
+              borderRadius="0px"
+              maxW="75%">
+                <ModalCloseButton/>
+                <ModalHeader></ModalHeader>
+                <ModalBody>
+                  <VStack alignItems="left">
+                  {pages.map((page) =>
+                  <Text key={page.title}
+                  fontSize="xl"
+                  textColor="black"
+                  >
+                    <Link href={page.link} >{page.title}</Link>
+                  </Text>
+                  )}
+                  </VStack>
+                </ModalBody>
+              </MotionModalContent>
+            </Modal>
+          </HStack>
+          <Box marginBottom="5%" paddingTop="10px">
+            <Link textColor="black" size="sm" href="/">
+              <Image src="/images/logo.png" />
+            </Link>
+          </Box>
+          <HStack justifySelf="end">
+            {shopLinks.map((shopLink) => (
+              <IconButton
+                key={shopLink.title}
+                aria-label="Search site"
+                icon={shopLink.icon}
+                bgColor="transparent"
+                _hover={{ bgColor: "transparent" }}
+              />
+            ))}
+          </HStack>
+        </Grid>
+      </Box>
+    </AnimatePresence>
   );
 }
 
