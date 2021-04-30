@@ -14,10 +14,7 @@ a {
 * {
   box-sizing: border-box;
 }
-@font-face {
-  font-family: "Monesta";
-  src: url("../public/fonts/monesta.otf") format("opentype");
-}
+
 
 @keyframes rotateGradient {
   0% {

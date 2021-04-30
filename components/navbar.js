@@ -29,6 +29,8 @@ import {
   AiOutlineMenu,
 } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion"
+import { useState } from "react";
+import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 
 const MotionModalContent = motion(ModalContent)
 const MotionModalOverlay = motion(ModalOverlay)
@@ -42,7 +44,30 @@ export default function NavBar() {
     {
       link: "/",
       title: "Shop",
+      children: [
+        {
+          link: "/product-list",
+          title: "All",
+        },
+        {
+          link: "/product-list",
+          title: "Dresses",
+        },
+        {
+          link: "/product-list",
+          title: "Tops",
+        },
+        {
+          link: "/product-list",
+          title: "Bottoms",
+        },
+        {
+          link: "/product-list",
+          title: "Accessories",
+        },
+      ]
     },
+   
     {
       link: "/about",
       title: "About",
@@ -73,7 +98,7 @@ export function NavBarMobile({ pages, shopLinks }) {
   return (
     <AnimatePresence exitBeforeEnter>
       <Box position="sticky" zIndex="50" top="0" bgColor="white" boxShadow="md">
-        <Grid templateColumns={["1fr 125px 1fr"]}>
+        <Grid templateColumns={["1fr 100px 1fr"]}>
           <HStack>
             <IconButton
               onClick={onOpen}
@@ -152,7 +177,7 @@ export function NavBarMobile({ pages, shopLinks }) {
           </HStack>
           <Box marginBottom="5%" paddingTop="10px">
             <Link textColor="black" size="sm" href="/">
-              <Image src="/images/logo.png" />
+              <Image src="/images/logo.svg" />
             </Link>
           </Box>
           <HStack justifySelf="end">
@@ -183,22 +208,46 @@ export function NavBarDesktop({ pages, shopLinks }) {
       boxShadow="md"
     >
       <Grid
-        templateColumns={["1fr 1fr 1fr", null, "1fr 125px 1fr"]}
+        templateColumns={["1fr 1fr 1fr", null, "1fr 100px 1fr"]}
         w="100%"
         justifyItems="center"
+        paddingY="8px"
         paddingX="25px"
       >
         <HStack spacing="20px" justifySelf="start">
-          {pages.map((page) => (
-            <Button key={page.title} textColor="black" variant="link" size="md">
-              <Link href={page.link}>{page.title}</Link>
-            </Button>
-          ))}
+          {pages.map((page) => {
+            const hasChildren = page?.children
+            if (hasChildren) {
+              return(
+              <Menu key={page.title} gutter={22} >
+                <MenuButton as={Button} textColor="black" variant="link" size="md">
+                {page.title}
+                </MenuButton>
+                  <MenuList w="100vw" borderRadius="0px">
+                    {page.children.map((child) => (
+                      <Link href={child.link} key={child.title}>
+                        <MenuItem>
+                        {child.title}
+                        </MenuItem>
+                      </Link>
+                    ))}
+                  </MenuList>
+              </Menu>
+              )
+            }
+            else { 
+              return (
+                <Button key={page.title} textColor="black" variant="link" size="md">
+                  <Link href={page.link}>{page.title}</Link>
+                </Button>
+              )
+            }
+          })}
         </HStack>
 
         <Box marginBottom="5%">
           <Link textColor="black" size="sm" href="/">
-            <Image src="/images/logo.png" />
+            <Image src="/images/logo.svg" />
           </Link>
         </Box>
 
@@ -221,3 +270,4 @@ export function NavBarDesktop({ pages, shopLinks }) {
     </Box>
   );
 }
+

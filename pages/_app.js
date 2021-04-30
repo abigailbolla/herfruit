@@ -25,8 +25,9 @@ function MyApp({ Component, pageProps }) {
       },
       Heading: {
         baseStyle: {
-          fontFamily: `"Monesta", sans-serif`,
-          fontWeight:"400"
+          fontFamily: `"ivypresto-display", sans-serif`,
+          fontWeight:"600",
+          fontStyle: "italic"
         },
       },
       Button: {

@@ -13,7 +13,7 @@ import BlockWrap from "./blockwrap";
 export default function Footer() {
   return (
     <Grid
-      justifySelf="flex-end"
+    justifySelf="flex-end"
       templateColumns={["100%", null, "repeat(4, 1fr)"]}
       gap={["25px", "50px"]}
       padding="50px"
