@@ -115,6 +115,7 @@ export function NavBarMobile({ pages, shopLinks }) {
             />
             <Modal
               size="full"
+              position="sticky"
               onClose={onClose}
               isOpen={isOpen}
               motionPreset="none"
