@@ -52,7 +52,8 @@ export function ImageGridDesktop({ gridItems }) {
   return (
     <Grid
       marginX="auto"
-      padding="100px"
+      paddingY="100px"
+      paddingX="25px"
       templateColumns={["repeat(2, 1fr)", null, "repeat(4, 1fr)"]}
       gap={25}
     >
@@ -91,9 +92,9 @@ export function ImageGridMobile({ gridItems }) {
               <Image src={item.image} layout="fill" objectFit="cover" />
             </AspectRatio>
             <Flex paddingTop="15px">
-              <Heading size="md" fontWeight="bold">
+              <Text size="md" fontWeight="bold">
                 {item.heading}
-              </Heading>
+              </Text>
               <Spacer />
               <Icon as={BsArrowRight} w={5} h={5} />
             </Flex>

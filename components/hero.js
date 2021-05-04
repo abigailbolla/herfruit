@@ -58,7 +58,7 @@ export default function Hero() {
         templateColumns={"100%"}
         templateRows={"1fr"}
         marginBottom={["50px", null, "75px"]}
-        marginTop={["50px", null, "75px"]}
+        marginTop={["0px", null, "75px"]}
         zIndex="2"
       >
         <Grid
@@ -72,7 +72,7 @@ export default function Hero() {
           w="100%"
           maxW="1800px"
           marginX="auto"
-          paddingX="10px"
+          paddingX={["0px", null, "10px"]}
         >
           <Box display={["none", null, "block"]}>
             <GradientImage
@@ -85,7 +85,7 @@ export default function Hero() {
           <Box>
             <GradientImage
               image="/images/hero.png"
-              borderTopRadius={["50vw", null, "calc(100vw/4)"]}
+              borderTopRadius={["0px", null, "calc(100vw/4)"]}
             />
           </Box>
 
@@ -102,8 +102,8 @@ export default function Hero() {
           alignSelf="center"
           paddingTop={["35px", null, "0px"]}
           spacing="25px"
-          gridRow={[null, null, "1"]}
-          gridColumn={[null, null, "1"]}
+          gridRow="1"
+          gridColumn="1"
           zIndex="2"
           textAlign="center"
           maxW="500px"

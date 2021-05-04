@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
     components: {
       Text: {
         baseStyle: {
-          color: "rgba(0,0,0,.6)"
+          color: "rgba(0,0,0,.8)"
         }
       },
       Heading: {

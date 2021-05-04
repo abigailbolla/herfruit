@@ -67,7 +67,10 @@ export default function NavBar() {
         },
       ]
     },
-   
+    {
+      link: "/product-list",
+      title: "Collections",
+    },
     {
       link: "/about",
       title: "About",
@@ -95,12 +98,14 @@ export default function NavBar() {
 
 export function NavBarMobile({ pages, shopLinks }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const iconSize = "20px"
   return (
     <AnimatePresence exitBeforeEnter>
-      <Box position="sticky" zIndex="50" top="0" bgColor="white" boxShadow="md">
+      <Box position="sticky" zIndex="50" top="0" bgColor="white" >
         <Grid templateColumns={["1fr 100px 1fr"]}>
-          <HStack>
+          <HStack paddingLeft="10px">
             <IconButton
+              fontSize={iconSize}
               onClick={onOpen}
               icon={<AiOutlineMenu />}
               justifySelf="start"
@@ -175,17 +180,18 @@ export function NavBarMobile({ pages, shopLinks }) {
               </MotionModalContent>
             </Modal>
           </HStack>
-          <Box marginBottom="5%" paddingTop="10px">
+          <Box marginBottom="15%" paddingTop="15px">
             <Link textColor="black" size="sm" href="/">
               <Image src="/images/logo.svg" />
             </Link>
           </Box>
-          <HStack justifySelf="end">
+          <HStack justifySelf="end" paddingRight="10px">
             {shopLinks.map((shopLink) => (
               <IconButton
                 key={shopLink.title}
                 aria-label="Search site"
                 icon={shopLink.icon}
+                fontSize={iconSize}
                 bgColor="transparent"
                 _hover={{ bgColor: "transparent" }}
               />
@@ -223,7 +229,7 @@ export function NavBarDesktop({ pages, shopLinks }) {
                 <MenuButton as={Button} textColor="black" variant="link" size="md">
                 {page.title}
                 </MenuButton>
-                  <MenuList w="100vw" borderRadius="0px">
+                  <MenuList w="100%" borderRadius="0px">
                     {page.children.map((child) => (
                       <Link href={child.link} key={child.title}>
                         <MenuItem>

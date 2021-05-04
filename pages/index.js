@@ -6,7 +6,6 @@ import {
   Box,
   Grid,
   Heading,
-  Image,
   VStack,
   Text,
   Button,
@@ -15,11 +14,13 @@ import {
 } from "@chakra-ui/react";
 import Hero from "../components/hero";
 import ImageGrid from "../components/image-grid";
+import LogoGrid from "../components/logo-grid";
 
 export default function Home() {
   return (
     <Layout>
       <Hero />
+      <LogoGrid/>
       <HorizontalImage />
       <ImageGrid/>
     </Layout>

@@ -14,17 +14,16 @@ import Link from "next/link";
 export default function Layout({ children }) {
   return (
     <Flex direction="column" minH="100vh">
-        <HStack textAlign="center" justifyContent="center" bgColor="black" w="100vw" >
-          <Heading
-            fontSize="md"
-            textColor="white"
-            align="center"
-            paddingY="8px"
-          >
-            New styles. Shop now
-          </Heading>
-          
-        </HStack>
+      <HStack
+        textAlign="center"
+        justifyContent="center"
+        bgColor="black"
+        w="100%"
+      >
+        <Text textColor="white" align="center" paddingY="10px">
+          New styles are here
+        </Text>
+      </HStack>
       <NavBar />
       <Box justifySelf="flex-start" flexGrow="1" as="main">
         {children}
