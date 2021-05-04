@@ -101,7 +101,7 @@ export function NavBarMobile({ pages, shopLinks }) {
   const iconSize = "20px"
   return (
     <AnimatePresence exitBeforeEnter>
-      <Box position="sticky" zIndex="50" top="0" bgColor="white" >
+      <Box position="sticky" zIndex="50" top="0" bgColor="white" boxShadow="md">
         <Grid templateColumns={["1fr 100px 1fr"]}>
           <HStack paddingLeft="10px">
             <IconButton

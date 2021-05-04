@@ -26,7 +26,7 @@ export default function HorizontalImage() {
                 <Image src={"/images/set.png"} objectFit="cover" layout="fill" />
               </AspectRatio>
             ),
-            md: <AspectRatio ratio={[16 / 9]}><Image
+            md: <AspectRatio ratio={[3 / 2]}><Image
             src={"/images/thin.png"}
             objectFit="cover"
             layout="fill"
