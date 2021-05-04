@@ -32,23 +32,7 @@ export default function Hero() {
         zIndex="1"
         transformOrigin="bottom center"
         transform="translateY(-60vw) scale(3)"
-      />
-      <Box
-        gridRow="1"
-        gridColumn="1"
-        bgGradient="linear(to left, cyan.400, pink.400)"
-        filter="blur(50px)"
-        padding="100px"
-        opacity=".3"
-        w="100vw"
-        h="100vw"
-        borderRadius="50%"
-        position="absolute"
-        inset="0"
-        padding="100px"
-        zIndex="0"
-        transformOrigin="bottom center"
-        transform="translateY(-60vw) scale(4)"
+        boxShadow="md"
       />
 
       <Grid
@@ -57,7 +41,7 @@ export default function Hero() {
         className="image and text overlap"
         templateColumns={"100%"}
         templateRows={"1fr"}
-        marginBottom={["50px", null, "75px"]}
+        marginBottom={["25px", null, "75px"]}
         marginTop={["0px", null, "75px"]}
         zIndex="2"
       >

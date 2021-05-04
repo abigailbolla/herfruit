@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function GradientImage({
   image,
   isLink,
-  ratio = 3 / 4,
+  ratio = 2 / 3,
   borderRadius,
   borderTopRadius,
   borderBottomRadius,

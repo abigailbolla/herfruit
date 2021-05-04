@@ -11,7 +11,7 @@ import Image from "next/image";
 
 export default function LogoGrid() {
   return (
-    <Box paddingBottom="50px" maxW="1000px" marginX="auto" paddingX="25px">
+    <Box paddingBottom="25px" maxW="1000px" marginX="auto" paddingX="25px">
       <Text textAlign="center" paddingBottom="25px">
         Featured in
       </Text>
