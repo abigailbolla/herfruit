@@ -12,7 +12,7 @@ import Image from "next/image";
 export default function LogoGrid() {
   return (
     <Box paddingBottom="25px" maxW="1000px" marginX="auto" paddingX="25px">
-      <Text textAlign="center" paddingBottom="25px">
+      <Text textAlign="center" paddingBottom="25px" fontSize="xl" fontWeight="bold">
         Featured in
       </Text>
       <HStack justify="center" alignItems="center" spacing={["25px", null, null, "100px"]}>

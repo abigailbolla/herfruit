@@ -43,12 +43,13 @@ export default function ProductList() {
       </Heading>
 
       <Grid
-        maxW="1600px"
+        maxW="2000px"
         marginX="auto"
         templateColumns={["repeat(2, 1fr)", null, "repeat(12, 1fr)"]}
         gap={["5px"]}
         rowGap="25px"
         paddingBottom="50px"
+        paddingX="10px"
       >
         {(products.concat(products)).map((product, index) => {
           if (count4 == 4) {

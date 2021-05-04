@@ -23,11 +23,8 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import {
-  AiOutlineSearch,
-  AiOutlineShopping,
-  AiOutlineMenu,
-} from "react-icons/ai";
+import { AiOutlineSearch, AiOutlineShopping, AiOutlineMenu } from "react-icons/ai";
+import { IoBagOutline } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react";
 import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
@@ -82,7 +79,7 @@ export default function NavBar() {
       title: "Search",
     },
     {
-      icon: <AiOutlineShopping />,
+      icon: <IoBagOutline />,
       title: "Bag",
     },
   ];
@@ -115,7 +112,6 @@ export function NavBarMobile({ pages, shopLinks }) {
             />
             <Modal
               size="full"
-              position="sticky"
               onClose={onClose}
               isOpen={isOpen}
               motionPreset="none"
@@ -205,6 +201,7 @@ export function NavBarMobile({ pages, shopLinks }) {
 }
 
 export function NavBarDesktop({ pages, shopLinks }) {
+  const iconSize = "20px"
   return (
     <Box
       position="sticky"
@@ -263,6 +260,7 @@ export function NavBarDesktop({ pages, shopLinks }) {
             <HStack key={shopLink.title} spacing="0px">
               <IconButton
                 aria-label="Search site"
+                iconSize={iconSize}
                 icon={shopLink.icon}
                 bgColor="transparent"
                 _hover={{ bgColor: "transparent" }}
